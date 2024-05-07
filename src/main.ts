@@ -3,6 +3,7 @@ import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
+  const port = process.env.PORT || 3000;
   const app = await NestFactory.create(AppModule);
   app.useGlobalPipes(new ValidationPipe({
     whitelist:true
@@ -12,6 +13,6 @@ async function bootstrap() {
     "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
     "preflightContinue": true
   })
-  await app.listen(3000);
+  await app.listen(port);
 }
 bootstrap();
