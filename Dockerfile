@@ -6,7 +6,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN npm install > /dev/stdout 2> /dev/stderr
+RUN npm install
 
 RUN npm run build
 
